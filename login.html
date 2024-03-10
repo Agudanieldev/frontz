@@ -146,7 +146,7 @@
                             <nav class="main-menu navbar-expand-md navbar-light">
                                 <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                     <ul class="navigation clearfix">
-                                        <li class="current dropdown"><a href="index.html">Home</a>
+                                        <li class="dropdown"><a href="index.html">Home</a>
                                             
                                         </li>  
                                        
@@ -154,11 +154,12 @@
                                             <ul>
                                                 
                                                 </li>
+                                                <li><a href="about.html">About</a></li>
                                                 <li><a href="contact.html">Contact</a></li>
                                                 <li><a href="faq.html">Faq’s</a></li>
                                             </ul>
                                         </li>  
-                                        <li class="dropdown"><a href="login.html">Login</a></li> 
+                                        <li class="dropdown"><a href="signup.html">Sign Up</a></li> 
                                     </ul>
                                 </div>
                             </nav>
@@ -240,7 +241,7 @@
 
           <div class="container-wrapper">
           <div class="auth-container">
-            <!-- <h1>Login</h1> -->
+            <h4 style="color:#f8f8f8;" >Login</h4><br>
              <!-- <img src="images/logo-4.png" alt=""> -->
             <!-- <p>Please fill in this form to login to your account.</p> -->
             <!-- <hr> -->
@@ -258,7 +259,7 @@
             <div class="container signin">
             <p>Already have an account? <button type="button"><a href="signup.html">Sign up</a></button></p>
             <!-- <p><button type="button"><a href="signup.html">Forgot Password?</a></button></p> -->
-            <label id="forgotpasslabel">Forgot Password?</label>
+            <label id="forgotpasslabel" title="Add your email and click">Forgot Password?</label>
           </div>
           </div>
     
@@ -333,7 +334,7 @@
           balance: docSnap.data().balance
         }));
         sessionStorage.setItem("user-creds", JSON.stringify(userCredential.user));
-        window.location.href = "https://agudanieldev.github.io/tradezanga_dashboard/index.html";
+        window.location.href = "https://dashboard.tradezanga.com/";
       }
 
     })
