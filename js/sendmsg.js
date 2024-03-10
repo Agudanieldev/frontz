@@ -1,5 +1,3 @@
-
-
 const firebaseConfig = {
   apiKey: "AIzaSyAVYnmzJvPlFWOjXiJDFChXZ8zAzQp1Ufw",
   authDomain: "oceandwell-01.firebaseapp.com",
@@ -11,46 +9,49 @@ const firebaseConfig = {
   measurementId: "G-LFHVNGR715"
 };
 
-// initialize firebase
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// reference your database
-var contactFormDB = firebase.database().ref("contactForm");
+// Get a reference to the Firestore database
+const db = firebase.firestore();
 
-document.getElementById("contactForm").addEventListener("submit", submitForm);
+// Reference your collection in Firestore
+const messagesCollection = db.collection("Messages");
+
+document.getElementById("message").addEventListener("submit", submitForm);
 
 function submitForm(e) {
   e.preventDefault();
 
   var name = getElementVal("name");
   var emailid = getElementVal("emailid");
+  var subject = getElementVal("subject");
   var msgContent = getElementVal("msgContent");
   var phone = getElementVal("phone");
-  var subject = getElementVal("subject");
 
-  saveMessages(name, emailid, phone, subject, msgContent);
+  saveMessages(name, emailid, subject, msgContent, phone);
 
-  //   enable alert
+  // Enable alert
   document.querySelector(".alert").style.display = "block";
 
-  //   remove the alert
+  // Remove the alert after 3 seconds
   setTimeout(() => {
     document.querySelector(".alert").style.display = "none";
-  }, 3000);
+    document.querySelector(".alert").style.transition = ".3s";
+  }, 4000);
 
-  //   reset the form
-  document.getElementById("contactForm").reset();
+  // Reset the form
+  document.getElementById("message").reset();
 }
 
-const saveMessages = (name, emailid, phone, subject, msgContent) => {
-  var newContactForm = contactFormDB.push();
-
-  newContactForm.set({
+const saveMessages = (name, emailid, subject, msgContent, phone) => {
+  // Add a new document to the "Messages" collection
+  messagesCollection.add({
     name: name,
     emailid: emailid,
+    subject: subject,
     msgContent: msgContent,
     phone: phone,
-    subject: subject,
   });
 };
 
