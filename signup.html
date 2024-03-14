@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-<title>Tradezanga - HTML 5 Template Preview</title>
+<title>Sign Up</title>
 
 <!-- Fav Icon -->
 <link rel="icon" href="images/favicon.ico" type="image/x-icon">
@@ -153,20 +153,18 @@
                             <nav class="main-menu navbar-expand-md navbar-light">
                                 <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                     <ul class="navigation clearfix">
-                                        <li class="dropdown"><a href="index.html">Home</a>
-                                            
-                                        </li>  
+                                        <li class=""><a href="index.html">Home</a></li>
                                        
                                         <li class="dropdown"><a href="about.html">About</a>
                                             <ul>
-                                                
                                                 </li>
                                                 <li><a href="about.html">About</a></li>
                                                 <li><a href="contact.html">Contact</a></li>
                                                 <li><a href="faq.html">Faq’s</a></li>
                                             </ul>
                                         </li>  
-                                        <li class="dropdown"><a href="login.html">Login</a></li> 
+                                        <li class="current"><a href="signup.html">Sign Up</a></li>
+                                        <li class=""><a href="login.html">Login</a></li>
                                     </ul>
                                 </div>
                             </nav>
@@ -177,7 +175,7 @@
                                 <div class="icon-box"><img src="images/icons/icon-31.png" alt=""></div>
                                 <a href="index.html">Client Portal<i class="flaticon-right-down"></i></a>
                             </div>
-                            <div class="btn-box"><a href="#accounts" class="theme-btn btn-one"><span>Open Account</span></a></div>
+                            <div class="btn-box"><a href="signup.html" class="theme-btn btn-one"><span>Open Account</span></a></div>
                         </div> -->
                     </div>
                 </div>
@@ -204,7 +202,7 @@
                                 <div class="icon-box"><img src="images/icons/icon-31.png" alt=""></div>
                                 <a href="index.html">Client Portal<i class="flaticon-right-down"></i></a>
                             </div>
-                            <div class="btn-box"><a href="#accounts" class="theme-btn btn-one"><span>Open Account</span></a></div>
+                            <div class="btn-box"><a href="signup.html" class="theme-btn btn-one"><span>Open Account</span></a></div>
                         </div>
                     </div>
                 </div>
@@ -341,7 +339,9 @@
                             firstname: FnameInp.value,
                             lastname: LnameInp.value,
                             email: EmailInp.value,
-                            balance: 0.00
+                            active_deposit: 0,
+                            profit: 0,
+                            total_balance: 0
                         });
         
                         alert("Account Created! You can now login");
