@@ -4,6 +4,83 @@
     --color-primary: #26ba5e;
 }
 
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.circle-container {
+  position: relative;
+  height: 30px;
+  width: 30px;
+}
+
+.circle-progress {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  border: 5px solid #ACCAFF36;
+  border-radius: 50%;
+}
+
+.circle-progress::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  border: 5px solid transparent;
+  border-top-color: #ACCAFF;
+  top: -5px;
+  left: -5px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* .preloader-wrapper2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.preloader2 {
+  border: 8px solid rgba(0, 0, 0, 0.1);
+  border-top: 8px solid #1abc9c;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} */
+
+/* Style for the page content */
+h1, p {
+  text-align: center;
+}
+
+
+
+
 .pricing-table {
   display: flex;
   flex-flow: row wrap;
