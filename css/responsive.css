@@ -1055,6 +1055,13 @@
     padding: 0px 30px;
   }
 
+  .header-style-two .header-lower .logo-box{
+    padding: 10px 20px 10px 20px;
+  }
+  .header-style-two .header-lower .logo-box .logo{
+    width: 172px;
+  }
+
   .main-header .menu-right-content .search-box-outer{
     margin-left: 15px;
   }

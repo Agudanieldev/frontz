@@ -947,6 +947,9 @@ img {
   padding: 26px 0px;
   margin-right: 80px;
 }
+.main-header .logo-box .logo{
+  width: 52%;
+}
 
 .main-header .menu-right-content{
   position: relative;
@@ -1470,6 +1473,7 @@ img {
 }
 
 .mobile-menu .nav-logo{
+  width: 52%;
   position:relative;
   padding:50px 25px;
   text-align:left;  
@@ -1832,8 +1836,9 @@ div#mCSB_1_container{
 .banner-carousel .content-box{
   position: relative;
   max-width: 600px;
-  padding: 155px 0px 290px 0px;
+  padding: 15px 0px 290px 0px;
   width: 100%;
+  height: 100%;
   z-index: 5;
 }
 
@@ -4325,14 +4330,12 @@ div#mCSB_1_container{
 }
 
 .header-style-two .header-lower .logo-box{
-  /* width: 100%; */
   padding: 16px 30px 22px 30px;
   background: #fff;
-  margin-top: -38px;
-  border-radius: 0px 5px 5px 0px;
+  border-radius: 30px 5px 5px 0px;
 }
 .header-style-two .header-lower .logo-box img{
-   width: 172px;
+   width: 100%;
 }
 
 .header-style-two .sticky-header .logo-box{
@@ -4438,6 +4441,7 @@ div#mCSB_1_container{
 .banner-style-two .banner-carousel .content-box{
   max-width: 100%;
   padding: 0px;
+  /* height: 200px; */
 }
 
 .banner-carousel .content-box .video-btn{
@@ -6232,11 +6236,12 @@ div#mCSB_1_container{
 }
 
 .footer-style-two .logo-widget{
-  margin-top: 7px;
+  /* margin-top: 7px; */
 }
 
 .footer-style-two .logo-widget .footer-logo{
   margin-bottom: 27px;
+  width: 42%;
 }
 
 .footer-style-two .logo-widget .year-box{
@@ -12499,48 +12504,4 @@ label.error{
   height: 725px;
   background-repeat: no-repeat;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

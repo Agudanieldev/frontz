@@ -4,11 +4,11 @@
     --color-primary: #26ba5e;
 }
 
-body, html {
+/* body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-}
+} */
 
 .circle-container {
   position: relative;
@@ -74,9 +74,9 @@ body, html {
 } */
 
 /* Style for the page content */
-h1, p {
+/* h1, p {
   text-align: center;
-}
+} */
 
 
 
