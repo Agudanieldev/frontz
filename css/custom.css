@@ -305,3 +305,26 @@
   color: var(--color-primary);;
   background: #2A293E;
 }
+
+/* FAQ */
+.accordion .accordion-item h2 button {
+  font-size: 1.4rem;
+}
+.accordion .accordion-item h2 button:hover {
+  background-color: #26ba5f31;
+}
+.accordion .accordion-item .accordion-body {
+  font-size: 1.1rem;
+
+}
+.accordion .accordion-item .accordion-body a {
+  background-color: var(--color-primary);
+  border: 0px solid;
+  border-radius: 5px;
+  padding: 10px;
+  color: #ffffff;
+}
+.accordion .accordion-item .accordion-body a:hover {
+  background-color: #23a153;
+  color: #ffffff;
+}
