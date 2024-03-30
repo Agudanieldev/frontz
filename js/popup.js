@@ -5,8 +5,8 @@ function getRandomTime() {
 function showPopup() {
   // Sample user data
   const users = [
-    { name: "John Doe", amount: "$500" },
-    { name: "Jane Smith", amount: "$300" },
+    { name: "John Doe", amount: "0" },
+    { name: "Jane Smith", amount: "0" },
     // Add more users as needed
   ];
 
