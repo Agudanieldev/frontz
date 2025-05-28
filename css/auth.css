@@ -60,7 +60,7 @@ h1 {
 
 form {
   display: flex;
-  height: 100vh;
+  height: 100dvh;
   align-items: end;
   overflow: scroll;
 }

@@ -85,11 +85,11 @@ const RegisterUser = async (evt) => {
             firstname: FnameInp.value,
             lastname: LnameInp.value,
             email: EmailInp.value,
-            active_deposit: "0",
-            profit: "0",
-            investment_tier: "None",
-            total_properties_owned: "0",
-            total_balance: "0"
+            active_deposit: String("0"),
+            profit: String("0"),
+            investment_tier: String("None"),
+            total_properties_owned: String("0"),
+            total_balance: String("0")
         });
 
         showModal("Account created successfully. Redirecting to the login page...");
