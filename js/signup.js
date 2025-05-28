@@ -27,8 +27,9 @@ const LnameInp = document.getElementById('lnameInp');
 const MainForm = document.getElementById('MainForm');
 const Preloader = document.getElementById('preloader');
 
-// Password Regex: At least one digit or special char, min 4 chars
-const passwordRegex = /^(?=.*[\d@$!%*?&]).{6,}$/;
+// Password Regex: At least one special char, min 6 chars
+const passwordRegex = /^(?=.*[!@#$%^&*(),.?":{}|<>]).{6,}$/;
+
 
 // Modal Handling
 const modal = document.getElementById('modal');
@@ -104,11 +105,28 @@ const RegisterUser = async (evt) => {
         }, 3000);
 
     } catch (error) {
-        console.error("Error:", error.code, error.message);
-        showModal(error.message);
-    } finally {
-        Preloader.style.display = 'none';
+    console.error("Sign-up Error:", error.code, error.message);
+
+    let msg = "Sign-up failed.";
+    switch (error.code) {
+        case "auth/email-already-in-use":
+            msg = "An account with this email already exists."; break;
+        case "auth/invalid-email":
+            msg = "Please enter a valid email address."; break;
+        case "auth/weak-password":
+            msg = "Password is too weak. Use at least 6 characters."; break;
+        case "auth/network-request-failed":
+            msg = "Network error. Please check your connection."; break;
+        case "auth/too-many-requests":
+            msg = "Too many attempts. Please try again later."; break;
+        default:
+            msg = error.message; break;
     }
+        showModal(msg);
+
+    } finally {
+            Preloader.style.display = 'none';
+        }
 };
 
 // Attach event listener
