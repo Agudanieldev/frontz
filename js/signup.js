@@ -70,6 +70,10 @@ const RegisterUser = async (evt) => {
         return;
     }
 
+    if (error.code === "auth/email-already-in-use") {
+        showModal("An account with this email already exists. Try logging in or using a different email.");
+    }
+
     if (!passwordRegex.test(PassInp.value)) {
         showModal("Password must be at least 6 characters, with at least one number or special character.");
         Preloader.style.display = 'none';
