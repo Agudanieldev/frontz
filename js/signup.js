@@ -70,9 +70,9 @@ const RegisterUser = async (evt) => {
         return;
     }
 
-    if (error.code === "auth/email-already-in-use") {
-        showModal("An account with this email already exists. Try logging in or using a different email.");
-    }
+    // if (error.code === "auth/email-already-in-use") {
+    //     showModal("An account with this email already exists. Try logging in or using a different email.");
+    // }
 
     if (!passwordRegex.test(PassInp.value)) {
         showModal("Password must be at least 6 characters, with at least one number or special character.");
@@ -91,7 +91,7 @@ const RegisterUser = async (evt) => {
             email: EmailInp.value,
             active_deposit: String("0"),
             profit: String("0"),
-            investment_tier: String("None"),
+            investment_tier: String("0"),
             total_properties_owned: String("0"),
             total_balance: String("0")
         });
