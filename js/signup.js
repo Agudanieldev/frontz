@@ -92,9 +92,9 @@ const RegisterUser = async (evt) => {
             email: EmailInp.value,
             active_deposit: String("0"),
             profit: String("0"),
-            investment_tier: String("0"),
             total_properties_owned: String("0"),
-            total_balance: String("0")
+            realplan: String("0"),
+            total_balance: String("0"),
         });
 
         showModal("Account created successfully. Redirecting to the login page...");
