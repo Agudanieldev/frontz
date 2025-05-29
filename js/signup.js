@@ -93,7 +93,7 @@ const RegisterUser = async (evt) => {
             active_deposit: String("0"),
             profit: String("0"),
             total_properties_owned: String("0"),
-            realplan: String("0"),
+            realplan: String("None"),
             total_balance: String("0"),
         });
 
