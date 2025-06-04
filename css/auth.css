@@ -40,8 +40,9 @@ body {
   font-family: var(--text-font);
   background-image: url(../img/login-pic.png);
   background-size: cover;
-  background-repeat:no-repeat;
+  background-repeat:repeat;
   background-position:right top;
+  /* overflow: scroll; */
   
   -webkit-font-smoothing: antialiased;
 }
@@ -62,7 +63,7 @@ form {
   display: flex;
   height: 100dvh;
   align-items: end;
-  overflow: scroll;
+  /* overflow: scroll; */
 }
 
 /* Add padding to containers */

@@ -37,6 +37,7 @@
 <link href="css/jquery-ui.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 <link href="css/responsive.css" rel="stylesheet">
+<link href="css/custom.css" rel="stylesheet">
 
 </head>
 
@@ -92,6 +93,17 @@
                             </div>
                             
                         </div> -->
+
+                        <div id="google_translate_element"></div>
+
+                        <script type="text/javascript">
+                        function googleTranslateElementInit() {
+                          new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+                        }
+                        </script>
+
+                        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                        <script type="text/javascript" src="./js/googletranscookie.js"></script>
                         
                         <script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script>
                         <coingecko-coin-price-marquee-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin" currency="usd" background-color="#ffffff" locale="en"></coingecko-coin-price-marquee-widget>
