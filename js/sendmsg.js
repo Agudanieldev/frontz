@@ -1,60 +1,59 @@
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyB5kLnG8N55b9HYAt16qOSlosJM39KdM1I",
-  authDomain: "tradezanga-9a60e.firebaseapp.com",
-  projectId: "tradezanga-9a60e",
-  storageBucket: "tradezanga-9a60e.appspot.com",
-  messagingSenderId: "454930065029",
-  appId: "1:454930065029:web:a093586b5bc485c2d36bec",
-  measurementId: "G-GEMHM4Z3H9"
-};
+import { supabase } from "./supabase.js";
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+const form = document.getElementById("message");
 
-// Get a reference to the Firestore database
-const db = firebase.firestore();
+if (form) {
+  const alertBox = form.querySelector(".alert");
+  const submitButton = form.querySelector('button[type="submit"]');
 
-// Reference your collection in Firestore
-const messagesCollection = db.collection("Messages");
+  const showAlert = (message, isError = false) => {
+    if (!alertBox) return;
 
-document.getElementById("message").addEventListener("submit", submitForm);
+    alertBox.textContent = message;
+    alertBox.classList.toggle("error", isError);
+    alertBox.style.display = "block";
 
-function submitForm(e) {
-  e.preventDefault();
+    clearTimeout(alertBox._hideTimer);
+    alertBox._hideTimer = setTimeout(() => {
+      alertBox.style.display = "none";
+      alertBox.classList.remove("error");
+    }, 5000);
+  };
 
-  var name = getElementVal("name");
-  var emailid = getElementVal("emailid");
-  var subject = getElementVal("subject");
-  var msgContent = getElementVal("msgContent");
-  var phone = getElementVal("phone");
+  const value = (id) => (document.getElementById(id)?.value || "").trim();
 
-  saveMessages(name, emailid, subject, msgContent, phone);
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
 
-  // Enable alert
-  document.querySelector(".alert").style.display = "block";
+    const payload = {
+      name: value("name"),
+      email: value("emailid"),
+      phone: value("phone") || null,
+      subject: value("subject") || null,
+      message: value("msgContent"),
+    };
 
-  // Remove the alert after 3 seconds
-  setTimeout(() => {
-    document.querySelector(".alert").style.display = "none";
-    document.querySelector(".alert").style.transition = ".3s";
-  }, 4000);
+    if (!payload.name || !payload.email || !payload.message) {
+      showAlert("Please fill in your name, email, and message.", true);
+      return;
+    }
 
-  // Reset the form
-  document.getElementById("message").reset();
-}
+    const originalLabel = submitButton.innerHTML;
+    submitButton.disabled = true;
+    submitButton.innerHTML = "<span>Sending...</span>";
 
-const saveMessages = (name, emailid, subject, msgContent, phone) => {
-  // Add a new document to the "Messages" collection
-  messagesCollection.add({
-    name: name,
-    emailid: emailid,
-    subject: subject,
-    msgContent: msgContent,
-    phone: phone,
+    const { error } = await supabase.from("contact_messages").insert(payload);
+
+    submitButton.disabled = false;
+    submitButton.innerHTML = originalLabel;
+
+    if (error) {
+      console.error("Contact form error:", error.message);
+      showAlert("Your message could not be sent. Please try again.", true);
+      return;
+    }
+
+    form.reset();
+    showAlert("Your message has been successfully sent.");
   });
-};
-
-const getElementVal = (id) => {
-  return document.getElementById(id).value;
-};
+}

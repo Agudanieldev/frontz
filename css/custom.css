@@ -407,3 +407,7 @@ iframe[id*=":2.container"] {
   background-color: #23a153;
   color: #ffffff;
 }
+/* Contact form error state */
+.alert.error {
+  background-color: #e04b4b;
+}
