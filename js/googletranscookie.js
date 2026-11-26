@@ -9,14 +9,46 @@ function googleTranslateElementInit() {
 
 
 
-  // Store the selected language
+  // Store the selected language. The marketing site runs on
+  // tradezanga.com and the portal on app.tradezanga.com, so the cookie is
+  // scoped to the shared domain to let the dashboard follow this choice.
   function setLanguageCookie(lang) {
-    document.cookie = `googtrans=/en/${lang};path=/`;
+    // Google's combo exposes ISO codes ("fr"); the old menu iframe exposed
+    // labels ("français"). Ignore anything that is not a language code.
+    if (!/^[a-z]{2}(-[a-z]{2,4})?$/i.test(lang || '')) return;
+
+    const value = `/en/${lang}`;
+    document.cookie = `googtrans=${value};path=/`;
+    if (/(^|\.)tradezanga\.com$/i.test(location.hostname)) {
+      document.cookie = `googtrans=${value};path=/;domain=.tradezanga.com`;
+    }
+  }
+
+  // Google's page translator renders a <select class="goog-te-combo">.
+  // Persist its value as a shared cookie so the dashboard can read it.
+  function watchLanguageCombo() {
+    const combo = document.querySelector(
+      '#google_translate_element select.goog-te-combo',
+    );
+    if (!combo || combo.dataset.tzLanguageBound === 'true') return;
+
+    combo.dataset.tzLanguageBound = 'true';
+    combo.addEventListener('change', function () {
+      setLanguageCookie(combo.value);
+    });
   }
 
   // Monitor changes
   document.addEventListener('DOMContentLoaded', function () {
+    watchLanguageCombo();
+    const comboPoll = setInterval(watchLanguageCombo, 300);
+    window.setTimeout(function () {
+      clearInterval(comboPoll);
+    }, 10000);
+
     const observer = new MutationObserver(function () {
+      watchLanguageCombo();
+
       const iframe = document.querySelector('iframe.goog-te-menu-frame');
       if (!iframe) return;
 
